@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Details!{% endblock %}
+
+{% block body %}
+<div class="container" style="justify-content:center;">
+    <h1 style="color: blueviolet; text-align: center;">Details</h1>
+<div>
+    <div class="card mx-auto" style="width: 50%; background:bisque; text-align: center;">
+        <img src="{{ event.image }}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title"><a  style="text-decoration:none; color:red" href="{{ event.urlEvents }}" target="_blank">{{ event.name }}</a></h5>
+          <p class="card-text">{{ event.dateTime| date ('F j, Y, g:i a') }}</p>
+          <p class="card-text" style="font-family: 'Sedgwick Ave Display', cursive;">{{ event.description}}</p>
+          <p class="card-text">Capacity <b>{{ event.capacity}}</b> Person</p>
+          <p class="card-text">{{ event.email}}</p>
+          <p class="card-text">{{ event.phone }}</p>
+          <a class="card-text" style="text-decoration:none;">{{ event.urlEvents}}</a><br>
+          <p class="card-text">{{ event.fkType}}</p>
+          <p class="card-text">{{ event.address}}</p>
+          <a href="/" class="btn btn-primary">Back</a>
+        </div>
+      </div>
+    </div>
+</div>
+{% endblock %}

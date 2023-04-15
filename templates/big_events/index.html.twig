@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello Thear!{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1 style="color: darkmagenta; text-align: center;">Events</h1>
+    <div class="row row-cols-4 g-5">
+        {% for events in events %}
+        <div>
+            <div class="card" style="width: 20rem; background:skyblue;">
+                <img src="{{ events.image }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title"><a href="{{ events.urlEvents }}" target="_blank"
+                            style="text-decoration:none; color:rgb(245, 25, 36); font-family: Tilt Prism cursive;">{{ events.name }}</a></h5>
+                    <p class="card-text" style="color:darkorange">{{ events.dateTime| date ('F j, Y, g:i a') }}</p>
+                    <a href="/details/{{ events.id }}" class="btn btn-warning">Details</a>
+                    <a href="/edit/{{ events.id }}" class="btn btn-secondary">Update</a>
+                    <a href="/delete/{{ events.id }}" class="btn btn-danger">Delete</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
